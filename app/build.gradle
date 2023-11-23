@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace 'com.muhammadnaseem.cis_2818_project4'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.muhammadnaseem.cis_2818_project4"
