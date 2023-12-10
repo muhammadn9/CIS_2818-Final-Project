@@ -45,6 +45,15 @@
         android:layout_centerInParent="true"
         android:text="@string/joke_will_go_here" />
 
+    <TextView
+        android:id="@+id/jokes_punchline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="269dp"
+        android:text="punchline will go here" />
+
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
