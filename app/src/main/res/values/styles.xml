@@ -1,0 +1,16 @@
+<resources>
+
+    <!-- Custom colors -->
+    <color name="colorPrimary">#3498db</color>
+    <color name="colorAccent">#2ecc71</color>
+    <color name="colorBackground">#ecf0f1</color>
+    <color name="colorText">#34495e</color>
+
+    <!-- Custom styles -->
+    <style name="ProgressBar">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+</resources>
