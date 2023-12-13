@@ -10,6 +10,7 @@ import android.widget.ProgressBar
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -56,13 +57,35 @@ class MainActivity : AppCompatActivity() {
         cryptoSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val selectedCryptoName = cryptoNames[position]
-                fetchCryptoData(selectedCryptoName)
+                when (selectedCryptoName) {
+                    "Bitcoin" -> showBitcoinFragment()
+                    "Ethereum" -> showEthereumFragment()
+                    "Litecoin" -> showLitecoinFragment()
+                }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 // Do nothing
             }
         }
+    }
+
+    private fun showBitcoinFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, BitcoinFragment())
+            .commit()
+    }
+
+    private fun showEthereumFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, EthereumFragment())
+            .commit()
+    }
+
+    private fun showLitecoinFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, LitecoinFragment())
+            .commit()
     }
 
     private fun fetchCryptoData(cryptoName: String) {
@@ -119,7 +142,8 @@ class MainActivity : AppCompatActivity() {
         cryptoNameTextView.text = cryptoObject.getString("name")
         cryptoSymbolTextView.text = cryptoObject.getString("symbol")
         cryptoSupplyTextView.text = "Supply: ${cryptoObject.getDouble("supply").toInt()}"
-        cryptoPriceTextView.text = "Price: $${String.format("%.2f", cryptoObject.getDouble("priceUsd"))}"
+        cryptoPriceTextView.text =
+            "Price: $${String.format("%.2f", cryptoObject.getDouble("priceUsd"))}"
         cryptoPercentChangeTextView.text =
             "Change (24h): ${String.format("%.2f", cryptoObject.getDouble("changePercent24Hr"))}%"
 
