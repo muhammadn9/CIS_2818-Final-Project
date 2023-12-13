@@ -12,10 +12,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
         android:layout_marginTop="44dp"
+        android:layout_marginBottom="327dp"
         android:text="Bitcoin Fragment"
         android:textColor="#CC2929"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bitcoinImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,6 +31,21 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/bitcoinTitle"
         app:layout_constraintTop_toBottomOf="@+id/bitcoinTitle" />
+
+    <ImageView
+        android:id="@+id/bitcoinImage"
+        android:layout_width="121dp"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="198dp"
+        android:contentDescription="@string/bitcoin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bitcoinTitle"
+        app:srcCompat="@drawable/r"
+        tools:ignore="ImageContrastCheck" />
 
     <!-- Add more interactive UI elements specific to Bitcoin fragment here -->
 

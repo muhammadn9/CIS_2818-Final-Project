@@ -5,9 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 
 class BitcoinFragment : Fragment() {
+
+    private lateinit var bitcoinButton: Button
+    private lateinit var bitcoinImage: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -15,14 +19,21 @@ class BitcoinFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_bitcoin, container, false)
 
-        // Handle button click
-        val bitcoinButton: Button = view.findViewById(R.id.bitcoinButton)
+        bitcoinButton = view.findViewById(R.id.bitcoinButton)
+        bitcoinImage = view.findViewById(R.id.bitcoinImage)
+
         bitcoinButton.setOnClickListener {
-            // Add your logic for button click
-            // For example, you can show a toast
-            // Toast.makeText(requireContext(), "Bitcoin Button Clicked", Toast.LENGTH_SHORT).show()
+            toggleImageVisibility()
         }
 
         return view
+    }
+
+    private fun toggleImageVisibility() {
+        if (bitcoinImage.visibility == View.VISIBLE) {
+            bitcoinImage.visibility = View.INVISIBLE
+        } else {
+            bitcoinImage.visibility = View.VISIBLE
+        }
     }
 }
